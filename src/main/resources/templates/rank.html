@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>select</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="container">
+    <h2>四川路桥桥梁工程有限责任公司十大杰出贡献员工推荐名单</h2>
+    <p>...</p>
+    <th:block th:each="listInfo:${showUserInfos}" >
+        <p th:text="${listInfo.id+'号&nbsp;'+listInfo.username}"></p>
+        <div class="progress">
+            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="1"
+                 th:attr="aria-valuemax=${allCount},aria-valuenow=${showCount[listInfo.id]}"
+                 th:style="${'width: '+showCount[listInfo.id]*100/allCount+'%;'}"
+                 th:text="${showCount[listInfo.id]+'票'}">
+            </div>
+        </div>
+    </th:block>
+</div>
+</body>
+</html>
