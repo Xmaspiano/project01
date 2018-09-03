@@ -29,7 +29,7 @@ public class MainController {
 
     @RequestMapping("")
     public String index(){
-        return "/main";
+        return "main";
     }
 
     @RequestMapping("/checkcode")
@@ -39,10 +39,10 @@ public class MainController {
             System.out.println(token);
             httpSession.setAttribute("token", token);
             httpSession.setAttribute("userInfo", userInfo);
-            ModelAndView modelAndView = new ModelAndView("/show");
+            ModelAndView modelAndView = new ModelAndView("show");
             return modelAndView;
         }else{
-            ModelAndView modelAndView = new ModelAndView("/main");
+            ModelAndView modelAndView = new ModelAndView("main");
             modelAndView.addObject("msg", "您不是被邀请用户！！！");
             return modelAndView;
         }

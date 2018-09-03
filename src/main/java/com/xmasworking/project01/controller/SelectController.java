@@ -95,7 +95,7 @@ public class SelectController {
             listKeySet.add(it.next());
         }
 
-        ModelAndView modelAndView = new ModelAndView("/select");
+        ModelAndView modelAndView = new ModelAndView("select");
         modelAndView.addObject("stringListMap", stringListMap);
         modelAndView.addObject("listKeySet", listKeySet);
         return modelAndView;

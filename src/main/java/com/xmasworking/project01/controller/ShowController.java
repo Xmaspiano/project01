@@ -27,7 +27,7 @@ public class ShowController {
     @RequestMapping("")
     public ModelAndView index(){
         List<ShowUserInfo> showUserInfos = showUserInfoService.findAll();
-        ModelAndView modelAndView = new ModelAndView("/show");
+        ModelAndView modelAndView = new ModelAndView("show");
         modelAndView.addObject("showUserInfos", showUserInfos);
         return modelAndView;
     }

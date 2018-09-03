@@ -17,7 +17,7 @@ public class RankShowController {
 
     @RequestMapping("")
     public ModelAndView index(){
-        ModelAndView modelAndView = new ModelAndView("/system/IframeShow.Templates");
+        ModelAndView modelAndView = new ModelAndView("system/IframeShow.Templates");
         modelAndView.addObject("srcURL", "/rank");
 
         return modelAndView;

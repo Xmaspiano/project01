@@ -22,29 +22,36 @@
     <h2>四川路桥桥梁工程有限责任公司十大杰出贡献员工推荐名单</h2>
     <p>...</p>
     <th:block th:each="listInfo:${stringListMap}">
-        <div class="panel panel-primary">
+        <div class="panel panel-primary" >
             <div class="panel-heading">
-                <h3 class="panel-title" th:text="${listInfo.key}">x</h3>
-            </div>
-            <div class="panel-body" th:each="showUserInfo,infoStat : ${listInfo.value}">
-                <div class="thumbnail">
-                    <h4 class="text-center" th:text="${showUserInfo.id+'号'}">X</h4>
-                    <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjQyIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDI0MiAyMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzEwMCV4MjAwCkNyZWF0ZWQgd2l0aCBIb2xkZXIuanMgMi42LjAuCkxlYXJuIG1vcmUgYXQgaHR0cDovL2hvbGRlcmpzLmNvbQooYykgMjAxMi0yMDE1IEl2YW4gTWFsb3BpbnNreSAtIGh0dHA6Ly9pbXNreS5jbwotLT48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwhW0NEQVRBWyNob2xkZXJfMTY1ODlmMWVmNTggdGV4dCB7IGZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMnB0IH0gXV0+PC9zdHlsZT48L2RlZnM+PGcgaWQ9ImhvbGRlcl8xNjU4OWYxZWY1OCI+PHJlY3Qgd2lkdGg9IjI0MiIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSI4OS44NTkzNzUiIHk9IjEwNS40Ij4yNDJ4MjAwPC90ZXh0PjwvZz48L2c+PC9zdmc+"
-                         alt="100%x200">
-                    <div class="caption">
-                        <div>
-                            <h3 th:text="${showUserInfo.username}">...</h3>
-                            <p th:text="${showUserInfo.sex+'&nbsp;&nbsp;'+showUserInfo.age
-                                        +'&nbsp;&nbsp;'+showUserInfo.department+'&nbsp;&nbsp;'+showUserInfo.company}">...</p>
-                        </div>
-                        <h5 th:text="${showUserInfo.achievement}">...</h5>
-                        <p th:text="${showUserInfo.glory}">...</p>
-                        <p>
-                            <button name="selectBtn" th:attr="data-type=${showUserInfo.type},data-id=${showUserInfo.id}"
-                                    class="btn-default btn" role="button" style="width: 100%" >选择</button>
-                        </p>
-                    </div>
+                <div>
+                    <h3 class="panel-title">
+                        <th:block th:text="${listInfo.key+'&nbsp;&nbsp;&nbsp;'}"></th:block>
+                        <small th:text="${'请选出'+#lists.size(listInfo.value)/2+'人'}"></small>
+                    </h3>
                 </div>
+            </div>
+            <div class="panel-body row" style="margin: -10px">
+                <th:block th:each="showUserInfo,infoStat : ${listInfo.value}">
+                    <div class="thumbnail col-xs-6">
+                        <h4 class="text-center" th:text="${showUserInfo.id+'号'}">X</h4>
+                        <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjQyIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDI0MiAyMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzEwMCV4MjAwCkNyZWF0ZWQgd2l0aCBIb2xkZXIuanMgMi42LjAuCkxlYXJuIG1vcmUgYXQgaHR0cDovL2hvbGRlcmpzLmNvbQooYykgMjAxMi0yMDE1IEl2YW4gTWFsb3BpbnNreSAtIGh0dHA6Ly9pbXNreS5jbwotLT48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwhW0NEQVRBWyNob2xkZXJfMTY1ODlmMWVmNTggdGV4dCB7IGZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMnB0IH0gXV0+PC9zdHlsZT48L2RlZnM+PGcgaWQ9ImhvbGRlcl8xNjU4OWYxZWY1OCI+PHJlY3Qgd2lkdGg9IjI0MiIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSI4OS44NTkzNzUiIHk9IjEwNS40Ij4yNDJ4MjAwPC90ZXh0PjwvZz48L2c+PC9zdmc+"
+                             alt="100%x200">
+                        <div class="caption text-center">
+                            <h5 th:text="${showUserInfo.username}">...</h5>
+                            <!--<p th:text="${showUserInfo.sex+'&nbsp;&nbsp;'+showUserInfo.age-->
+                            <!--+'&nbsp;&nbsp;'+showUserInfo.department+'&nbsp;&nbsp;'+showUserInfo.company}">...</p>-->
+                            <!--</div>-->
+                            <!--<h5 th:text="${showUserInfo.achievement}">...</h5>-->
+                            <!--<p th:text="${showUserInfo.glory}">...</p>-->
+                            <p>
+                                <button name="selectBtn" th:attr="data-type=${showUserInfo.type},data-id=${showUserInfo.id}"
+                                        class="btn-default btn" role="button" >选择</button>
+                                <button name="infoBtn" class="btn-default btn" role="button" >详情</button>
+                            </p>
+                        </div>
+                    </div>
+                </th:block>
             </div>
         </div>
     </th:block>

@@ -28,7 +28,7 @@ public class ShowUserInfoController {
     @RequestMapping("")
     public ModelAndView index(){
 
-        ModelAndView modelAndView = new ModelAndView("/system/DataGrid.Templates");
+        ModelAndView modelAndView = new ModelAndView("system/DataGrid.Templates");
 
         String titleName = "候选人管理";
         String dataUrl = "/system/showuser/getShowUserInfoData.json";

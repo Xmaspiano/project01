@@ -17,6 +17,6 @@ public class HomeController {
 
     @RequestMapping("")
     public String index(){
-        return "/system/home";
+        return "system/home";
     }
 }

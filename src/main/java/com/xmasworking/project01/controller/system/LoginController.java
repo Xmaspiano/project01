@@ -28,7 +28,7 @@ public class LoginController {
     @GetMapping("/")
     public String index(@SessionAttribute(WebSecurityConfig.SESSION_KEY) String account, Model model) {
         model.addAttribute("name", account);
-        return "/system/index";
+        return "system/index";
     }
 
     @GetMapping("/login")
@@ -37,7 +37,7 @@ public class LoginController {
         if(subject.isAuthenticated()){
             return "redirect:"+MainURL;
         }
-        return "/login";
+        return "login";
     }
 
     @PostMapping("/login")

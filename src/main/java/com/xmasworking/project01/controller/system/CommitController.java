@@ -41,7 +41,7 @@ public class CommitController {
     @RequestMapping("")
     public ModelAndView index(){
 
-        ModelAndView modelAndView = new ModelAndView("/system/DataGrid.Templates");
+        ModelAndView modelAndView = new ModelAndView("system/DataGrid.Templates");
 
         String titleName = "投票管理";
         String dataUrl = "/system/commit/getCommitData.json";

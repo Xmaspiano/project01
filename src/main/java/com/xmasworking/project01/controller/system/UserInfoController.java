@@ -1,11 +1,7 @@
 package com.xmasworking.project01.controller.system;
 
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
-import com.xmasworking.project01.controller.template.DataGridEntity;
 import com.xmasworking.project01.entity.UserInfo;
 import com.xmasworking.project01.service.UserInfoService;
-import org.apache.commons.collections.FastArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,7 +28,7 @@ public class UserInfoController {
     @RequestMapping("")
     public ModelAndView index(){
 
-        ModelAndView modelAndView = new ModelAndView("/system/DataGrid.Templates");
+        ModelAndView modelAndView = new ModelAndView("system/DataGrid.Templates");
 
         String titleName = "用户管理";
         String dataUrl = "/system/user/getUserInfoData.json";

@@ -21,13 +21,26 @@
 <div class="container">
     <h2>四川路桥桥梁工程有限责任公司十大杰出贡献员工推荐名单</h2>
     <p>...</p>
-    <th:block th:each="listInfo:${showUserInfos}" >
-        <p th:text="${listInfo.id+'号&nbsp;'+listInfo.username}"></p>
-        <div class="progress">
-            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="1"
-                 th:attr="aria-valuemax=${allCount},aria-valuenow=${showCount[listInfo.id]}"
-                 th:style="${'width: '+showCount[listInfo.id]*100/allCount+'%;'}"
-                 th:text="${showCount[listInfo.id]+'票'}">
+    <th:block th:each="listInfo:${stringListMap}">
+        <div class="panel panel-primary" >
+            <div class="panel-heading">
+                <div>
+                    <h3 class="panel-title">
+                        <th:block th:text="${listInfo.key+'&nbsp;&nbsp;&nbsp;'}"></th:block>
+                    </h3>
+                </div>
+            </div>
+            <div class="panel-body row" style="margin: -10px">
+                <th:block th:each="showUserInfo,infoStat : ${listInfo.value}">
+                        <p th:text="${showUserInfo.id+'号&nbsp;'+showUserInfo.username+'&nbsp'+showUserInfo.company}"></p>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="1"
+                                 th:attr="aria-valuemax=${allCount},aria-valuenow=${showCount[showUserInfo.id]}"
+                                 th:style="${'width: '+showCount[showUserInfo.id]*100/allCount+'%;'}"
+                                 th:text="${showCount[showUserInfo.id]+'票'}">
+                            </div>
+                        </div>
+                </th:block>
             </div>
         </div>
     </th:block>
