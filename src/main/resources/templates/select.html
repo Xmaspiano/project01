@@ -94,7 +94,6 @@
     /*]]>*/
 </script>
 <script>
-    var moUrlObject;
     $(function(){
 
         if(window.history && window.history.pushState) {
@@ -105,7 +104,7 @@
                 if (hashName !== '') {
                     var hash = window.location.hash;
                     if (hash === '') {
-                        alert("你点击了返回键");
+                        $('#myModal').modal("hide");
                     }
                 }
             });
@@ -114,20 +113,7 @@
 
         $('#myModal').on('show.bs.modal', function (e) {
             var name = $(e.relatedTarget).data("name");
-            $("#selectBody").addClass("hidden");
-            moUrlObject = $(e.relatedTarget);
-
             $("#userShow").attr("src","/images/showuserinfo/usershow/"+name+".jpeg");
-        });
-
-        $('#myModal').on('hide.bs.modal',function(){
-            $("#selectBody").removeClass("hidden");
-        });
-
-        $('#myModal').on('hidden.bs.modal',function(){
-            if(moUrlObject){
-                $(moUrlObject).focus();
-            }
         });
 
         $("button[name='selectBtn']").on("click",function(){

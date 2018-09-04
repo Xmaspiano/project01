@@ -88,7 +88,7 @@ public class RankController {
         modelAndView.addObject("stringListMap", stringListMap);
         modelAndView.addObject("listKeySet", listKeySet);
         modelAndView.addObject("showCount", showCount);
-        modelAndView.addObject("allCount", commitService.countAll());
+        modelAndView.addObject("allCount", commitService.countAll()/10);
         return modelAndView;
     }
 
