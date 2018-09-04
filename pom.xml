@@ -94,6 +94,18 @@
 
     </build>
 
+    <!--<profiles>-->
+        <!--<profile>-->
+            <!--<id>dev</id>-->
+            <!--<properties>-->
+                <!--<profiles.activation>dev</profiles.activation>-->
+            <!--</properties>-->
+            <!--<activation>-->
+                <!--<activeByDefault>true</activeByDefault>-->
+            <!--</activation>-->
+        <!--</profile>-->
+    <!--</profiles>-->
+
     <pluginRepositories>
         <pluginRepository>
             <id>spring-snapshots</id>

@@ -39,7 +39,7 @@ public class MainController {
             System.out.println(token);
             httpSession.setAttribute("token", token);
             httpSession.setAttribute("userInfo", userInfo);
-            ModelAndView modelAndView = new ModelAndView("show");
+            ModelAndView modelAndView = new ModelAndView("redirect:/select");
             return modelAndView;
         }else{
             ModelAndView modelAndView = new ModelAndView("main");

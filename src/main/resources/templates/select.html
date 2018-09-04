@@ -16,11 +16,16 @@
     <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style type="text/css">
+        h2{color: red;text-align: center;}
+    </style>
 </head>
 <body>
-<div class="container">
-    <h2>四川路桥桥梁工程有限责任公司十大杰出贡献员工推荐名单</h2>
-    <p>...</p>
+<img src="/images/selectbg.jpeg" class="img-responsive center-block">
+<div id="selectBody" class="container">
+    <!--<h2>四川路桥桥梁工程有限责任公司<br>十大杰出贡献员工评选</h2>-->
+    <hr style="margin: 10px 0">
+    <p>请从以下20位候选人中选出10人。本次投票分为7个类别，每个类别有2-4人，每个类别中需选出1-2人，共计10人。请按规则投票，否则投票无效。</p>
     <th:block th:each="listInfo:${stringListMap}">
         <div class="panel panel-primary" >
             <div class="panel-heading">
@@ -34,21 +39,15 @@
             <div class="panel-body row" style="margin: -10px">
                 <th:block th:each="showUserInfo,infoStat : ${listInfo.value}">
                     <div class="thumbnail col-xs-6">
-                        <h4 class="text-center" th:text="${showUserInfo.id+'号'}">X</h4>
-                        <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjQyIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDI0MiAyMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzEwMCV4MjAwCkNyZWF0ZWQgd2l0aCBIb2xkZXIuanMgMi42LjAuCkxlYXJuIG1vcmUgYXQgaHR0cDovL2hvbGRlcmpzLmNvbQooYykgMjAxMi0yMDE1IEl2YW4gTWFsb3BpbnNreSAtIGh0dHA6Ly9pbXNreS5jbwotLT48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwhW0NEQVRBWyNob2xkZXJfMTY1ODlmMWVmNTggdGV4dCB7IGZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMnB0IH0gXV0+PC9zdHlsZT48L2RlZnM+PGcgaWQ9ImhvbGRlcl8xNjU4OWYxZWY1OCI+PHJlY3Qgd2lkdGg9IjI0MiIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSI4OS44NTkzNzUiIHk9IjEwNS40Ij4yNDJ4MjAwPC90ZXh0PjwvZz48L2c+PC9zdmc+"
-                             alt="100%x200">
+                        <h4 class="text-center" th:text="${showUserInfo.username}">X</h4>
+                        <img th:src="${'/images/showuserinfo/user/'+showUserInfo.username+'.jpg'}" class="img-rounded">
                         <div class="caption text-center">
-                            <h5 th:text="${showUserInfo.username}">...</h5>
-                            <!--<p th:text="${showUserInfo.sex+'&nbsp;&nbsp;'+showUserInfo.age-->
-                            <!--+'&nbsp;&nbsp;'+showUserInfo.department+'&nbsp;&nbsp;'+showUserInfo.company}">...</p>-->
-                            <!--</div>-->
-                            <!--<h5 th:text="${showUserInfo.achievement}">...</h5>-->
-                            <!--<p th:text="${showUserInfo.glory}">...</p>-->
-                            <p>
-                                <button name="selectBtn" th:attr="data-type=${showUserInfo.type},data-id=${showUserInfo.id}"
-                                        class="btn-default btn" role="button" >选择</button>
-                                <button name="infoBtn" class="btn-default btn" role="button" >详情</button>
-                            </p>
+                            <button name="selectBtn" th:attr="data-type=${showUserInfo.type},data-id=${showUserInfo.id}"
+                                    class="btn-default btn" role="button" style="width: 100px">投票</button>
+                            <div style="height: 6px"></div>
+                            <button th:name="${'infoBtn_'+showUserInfo.id}" th:id="${'infoBtn_'+showUserInfo.id}"
+                                    th:attr="data-name=${showUserInfo.username}" class="btn-default btn"
+                                    data-toggle="modal" data-target="#myModal" role="button" style="width: 100px">候选人详情</button>
                         </div>
                     </div>
                 </th:block>
@@ -62,7 +61,28 @@
                 marginwidth=0 marginheight=0 frameborder="no" border="0"  src="/src/Copyright.html" ></iframe>
     </div>
 </div>
-<div id="popover-content"></div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <!--<span aria-hidden="true">&times;</span>-->
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">候选人详情</h4>
+            </div>
+            <div id="showBody">
+                <img id="userShow" src="#" class="img-responsive center-block"/>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal" style="width: 100%">返回</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="applyContent" class="hidden"></div>
 <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
@@ -74,7 +94,42 @@
     /*]]>*/
 </script>
 <script>
+    var moUrlObject;
     $(function(){
+
+        if(window.history && window.history.pushState) {
+            $(window).on('popstate', function () {
+                var hashLocation = location.hash;
+                var hashSplit = hashLocation.split("#!/");
+                var hashName = hashSplit[1];
+                if (hashName !== '') {
+                    var hash = window.location.hash;
+                    if (hash === '') {
+                        alert("你点击了返回键");
+                    }
+                }
+            });
+            window.history.pushState('forward', null, './#forward');
+        }
+
+        $('#myModal').on('show.bs.modal', function (e) {
+            var name = $(e.relatedTarget).data("name");
+            $("#selectBody").addClass("hidden");
+            moUrlObject = $(e.relatedTarget);
+
+            $("#userShow").attr("src","/images/showuserinfo/usershow/"+name+".jpeg");
+        });
+
+        $('#myModal').on('hide.bs.modal',function(){
+            $("#selectBody").removeClass("hidden");
+        });
+
+        $('#myModal').on('hidden.bs.modal',function(){
+            if(moUrlObject){
+                $(moUrlObject).focus();
+            }
+        });
+
         $("button[name='selectBtn']").on("click",function(){
             var type = $(this).data("type");
             var maxSize = $("button.btn[name='selectBtn'][data-type="+type+"]").length;
@@ -84,10 +139,10 @@
                 $(this).toggleClass(function(){
                     return "btn-primary";
                 });
-                if($(this).html() == "已选择"){
-                    $(this).html("选择");
+                if($(this).html() == "已投"){
+                    $(this).html("投票");
                 }else{
-                    $(this).html("已选择");
+                    $(this).html("已投");
                 }
             }else{
                 $(this).popover({
@@ -99,41 +154,40 @@
 
                 });
                 $(this).popover('show');
+                var that = this;
+                setTimeout(function(){
+                    $(that).popover('hide');
+                },2000);
             }
         });
 
-        $("button[name='selectBtn']").on('blur', function () {
-            $(this).popover('hide');
-        });
-
-        ;
-
-        $("#apply").on('blur', function () {
-            $(this).popover('hide');
-        });
-
-        $("#apply").popover({
-            html: true,
-            content:function(){
-                return $("#popover-content").html();
-            },
-            placement: "top",
-            trigger:"manual",
-            delay:
-                { show: 500, hide: 1000 }
-        }).on("click",function(){
+        $("#apply").on("click",function(){
             if(typeArray.length==0){
                 return false;
             }
+
+            $(this).popover({
+                html: true,
+                content:function(){
+                    return $("#applyContent").html();
+                },
+                placement: "top",
+                trigger:"manual",
+                delay:
+                    { show: 500, hide: 1000 }
+            });
 
             for(var i=0;i<typeArray.length;i++){
                 var maxSize = $("button.btn[name='selectBtn'][data-type="+typeArray[i]+"]").length;
                 var realSize = $("button.btn-primary[name='selectBtn'][data-type="+typeArray[i]+"]").length;
                 if(maxSize/2 != realSize){
-                    $("#popover-content").html(typeArray[i]+"，需选择"+maxSize/2+"名候选人！");
+
+                    $("#applyContent").html(typeArray[i]+"，需选择"+maxSize/2+"名候选人！");
 
                     $(this).popover('show');
-//                    $("button.btn[name='selectBtn'][data-type="+typeArray[i]+"]")[0].focus();
+                    setTimeout(function(){
+                        $("#apply").popover('hide');
+                    },2000);
                     return false;
                 }
             }
@@ -156,8 +210,11 @@
                     if(data.status){
                         window.top.location = data.forword;
                     }else{
-                        $("#popover-content").html("投票异常"+data.error);
+                        $("#applyContent").html("投票异常"+data.error);
                         $("#apply").popover('show');
+                        setTimeout(function(){
+                            $("#apply").popover('hide');
+                        },2000);
                     }
                 }
             });

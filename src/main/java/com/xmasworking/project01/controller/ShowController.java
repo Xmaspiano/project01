@@ -13,6 +13,7 @@ import com.xmasworking.project01.service.ShowUserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -29,6 +30,14 @@ public class ShowController {
         List<ShowUserInfo> showUserInfos = showUserInfoService.findAll();
         ModelAndView modelAndView = new ModelAndView("show");
         modelAndView.addObject("showUserInfos", showUserInfos);
+        return modelAndView;
+    }
+
+    @RequestMapping("/user")
+    public ModelAndView getShowUser(@RequestParam("id")Long id){
+        ShowUserInfo showUserInfo = showUserInfoService.findById(id);
+        ModelAndView modelAndView = new ModelAndView("show");
+        modelAndView.addObject("showUserInfo",showUserInfo);
         return modelAndView;
     }
 

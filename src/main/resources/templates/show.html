@@ -18,15 +18,16 @@
     <![endif]-->
 </head>
 <body>
-<div class="container">
-    <h2>四川路桥桥梁工程有限责任公司十大杰出贡献员工推荐名单</h2>
-    <p>...</p>
-    <p>投票说明</p>
-    <button class="btn btn-success" onclick="window.location.href='/select'" style="width: 100%">我要投票</button>
-    <div class="text-center" style="padding: 15px 0px 30px 0px">
-        <iframe name="Copyright" width=100% height=100%
-                marginwidth=0 marginheight=0 frameborder="no" border="0"  src="/src/Copyright.html" ></iframe>
+
+<div class="thumbnail">
+    <div class="caption">
+        <h3 th:text="${showUserInfo.id+'号'}"></h3>
+        <p th:text="${showUserInfo.username+'&nbsp;'+showUserInfo.sex+showUserInfo.age}"></p>
+        <h5 th:text="${showUserInfo.achievement}"></h5>
+        <p th:text="${showUserInfo.glory}"></p>
     </div>
+    <img th:src="${'/images/showuserinfo/userinfo/'+showUserInfo.username+'01.jpg'}">
+    <img th:src="${'/images/showuserinfo/userinfo/'+showUserInfo.username+'02.jpg'}">
 </div>
 <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
