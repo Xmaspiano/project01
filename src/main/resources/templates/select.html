@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>select</title>
+    <title>投票</title>
 
     <!-- Bootstrap -->
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -72,7 +72,7 @@
                 </button>
                 <h4 class="modal-title" id="myModalLabel">候选人详情</h4>
             </div>
-            <div id="showBody">
+            <div id="showBody" style="min-height: 800px">
                 <img id="userShow" src="#" class="img-responsive center-block"/>
             </div>
             <div class="modal-footer">
@@ -113,7 +113,7 @@
 
         $('#myModal').on('show.bs.modal', function (e) {
             var name = $(e.relatedTarget).data("name");
-            $("#userShow").attr("src","/images/showuserinfo/usershow/"+name+".jpeg");
+            $("#userShow").attr("src","/images/showuserinfo/usershow/"+name+".jpg");
         });
 
         $("button[name='selectBtn']").on("click",function(){
