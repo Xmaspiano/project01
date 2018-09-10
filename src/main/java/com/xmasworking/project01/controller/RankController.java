@@ -53,7 +53,7 @@ public class RankController {
             type = userInfo.getType();
             if ("公司领导班子".equals(type)) {
                 type1.add(userInfo);
-            } else if ("项目经理部".equals(type)) {
+            } else if ("项目经理类".equals(type)) {
                 type2.add(userInfo);
             } else if ("工程技术类".equals(type)) {
                 type3.add(userInfo);
@@ -70,7 +70,7 @@ public class RankController {
 
         Map<String, List<ShowUserInfo>> stringListMap = new LinkedHashMap();
         stringListMap.put("公司领导班子",type1);
-        stringListMap.put("项目经理部",type2);
+        stringListMap.put("项目经理类",type2);
         stringListMap.put("工程技术类",type3);
         stringListMap.put("桥梁核心类",type4);
         stringListMap.put("经营类",type5);
